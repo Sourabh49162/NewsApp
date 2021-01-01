@@ -1,16 +1,11 @@
 import React from 'react';
-import { Container, Header, Content, Tab, Tabs, Left, Right, Body, Title } from 'native-base';
+import { Container, Content, Tab, Tabs } from 'native-base';
+import MyHeader from './Header';
 import MyTab from './Tab';
 const Home = () => {
     return (
         <Container>
-            <Header style={{backgroundColor:'#009387'}} hasTabs >
-                <Left />
-                <Body>
-                    <Title>Home</Title>
-                </Body>
-                <Right />
-            </Header>
+            <MyHeader data='Home' />
             <Tabs>
                 <Tab tabStyle={{backgroundColor:'#009387'}} activeTabStyle={{backgroundColor:'#009387'}} textStyle={{color:'white'}} activeTextStyle={{color:'white'}} heading="General">
                     <MyTab category="general" />
