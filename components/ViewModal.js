@@ -1,7 +1,7 @@
 import React from 'react';
-import { Dimensions, Modal, Share } from 'react-native';
+import { Modal, Share } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { Container, Header, Left, Body, Right, Content, Icon, Title, Button } from 'native-base';
+import { Container, Header, Left, Body, Right, Icon, Title, Button } from 'native-base';
 
 
 const ViewModal = ({showModal, article, onClose}) => {
@@ -10,7 +10,6 @@ const ViewModal = ({showModal, article, onClose}) => {
         return onClose();
     }
 
-    const webViewHeight = Dimensions.get('window').height -56;
 
     const handleShare = () => {
         const { url, title } = article
@@ -38,10 +37,8 @@ const ViewModal = ({showModal, article, onClose}) => {
                         <Icon type="FontAwesome" name='close' color='white' fontSize={12} />
                         </Button>
                     </Right>
-                </Header>
-                <Content contentContainerStyle={{height:webViewHeight}}>
-                    <WebView source={{uri:article.url}} style={{flex:1}} onError={handleClose} startsInLoadingState={true} scalesPageToFit={false} />
-                </Content>
+                </Header>    
+                    <WebView source={{uri:article.url}} style={{flex:1}} onError={handleClose}/>
             </Container>
         </Modal>
     );

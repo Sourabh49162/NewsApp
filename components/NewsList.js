@@ -8,7 +8,7 @@ const NewsList = ({ data, onPress }) => {
 
     const handleView = () => {
         const { url, title } = data
-        return onPress({url, title});
+        onPress({url, title});
     }
 
     return (

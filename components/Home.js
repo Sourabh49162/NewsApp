@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, Tab, Tabs } from 'native-base';
+import { Container, Tab, Tabs } from 'native-base';
 import MyHeader from './Header';
 import MyTab from './Tab';
 const Home = () => {

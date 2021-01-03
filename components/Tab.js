@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Header, Content, List } from 'native-base';
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator, FlatList, ScrollView } from 'react-native'
 import NewsList from './NewsList';
 import axios from 'axios';
-// import NewsApi from './../config/NewsApi';
 import ViewModal from './ViewModal';
 import { base_url, country_code, api_key } from './../config/RestAPIConfig';
 
@@ -41,7 +40,21 @@ const MyTab = data => {
         </View>
     ) : (
             <Content>
+                {/* 1. Warning with List of Native-Base
+
                 <List dataArray={news} renderRow={item => <NewsList onPress={viewClick} data={item} />} />
+
+
+
+                2. Warning with FlatList of react-native
+
+                <FlatList data={news} renderItem={({item, index}) => <NewsList key={index} onPress={viewClick} data={item} />} /> */}
+
+                <ScrollView>
+                {
+                    news.map((item, index) => <NewsList key={index} onPress={viewClick} data={item} />)
+                }
+                </ScrollView>
             </Content>
         )
 
